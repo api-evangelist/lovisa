@@ -1,0 +1,153 @@
+name: Lovisa UCP Shopping MCP
+type: MCPServer
+generated: '2026-10-21'
+method: probed
+source:
+- https://www.lovisa.com/llms.txt
+- https://www.lovisa.com/.well-known/ucp
+- https://www.lovisa.com/api/ucp/mcp
+description: Remote MCP (JSON-RPC over HTTP) Universal Commerce Protocol shopping service for Lovisa's Shopify-hosted
+  US online store. Advertised in the store's own llms.txt and /.well-known/ucp profile. It is Shopify's platform
+  implementation of UCP (serverInfo universal-commerce 0.1.0), not a Lovisa-authored server.
+status: live
+deployment:
+  mode: remote
+  endpoint: https://www.lovisa.com/api/ucp/mcp
+  auth: none
+  verified: probed
+  alternate_endpoints:
+  - https://lovisa-usa.myshopify.com/api/ucp/mcp
+  note: initialize and tools/list answered anonymously (HTTP 200) on 2026-10-21. llms.txt asks agents to identify
+    traffic via Shopify Web Bot Auth for server-to-server requests; tool calls were not exercised.
+server_info:
+  name: universal-commerce
+  version: 0.1.0
+  protocolVersion: '2025-06-18'
+  capabilities:
+  - tools
+  - prompts
+  - resources
+  - logging
+protocol:
+  ucp_version: '2026-08-25'
+  spec: https://ucp.dev/2026-08-25/specification/overview/
+  schema: https://ucp.dev/2026-08-25/services/shopping/mcp.openrpc.json
+other_surfaces:
+- type: WebMCP
+  description: Browser WebMCP tools registered on store pages; checkout page exposes UCP tools.
+  docs: https://shopify.dev/docs/api/web-mcp
+tools_list_snapshot: json-schema/lovisa-ucp-mcp-tools-list.json
+tool_count: 13
+tools:
+- name: get_checkout
+  category: checkout
+  description: Returns details about the checkout, including line items, totals, and any applicable discounts or
+    taxes.
+  input_required:
+  - meta
+  - id
+  read_only: true
+- name: create_checkout
+  category: checkout
+  description: Creates a checkout. Returns checkout details, including line items, totals, and any applicable discounts
+    or taxes.
+  input_required:
+  - meta
+  - checkout
+  read_only: false
+- name: update_checkout
+  category: checkout
+  description: Updates a checkout. Returns checkout details, including line items, totals, and any applicable discounts
+    or taxes.
+  input_required:
+  - meta
+  - checkout
+  - id
+  read_only: false
+- name: complete_checkout
+  category: checkout
+  description: Completes a checkout and returns the checkout result. Returns details about the completed checkout,
+    including order ID, Thank You Page URL, or any errors encountered.
+  input_required:
+  - meta
+  - id
+  - checkout
+  read_only: false
+- name: cancel_checkout
+  category: checkout
+  description: Cancels a checkout.
+  input_required:
+  - meta
+  - id
+  read_only: false
+- name: get_cart
+  category: cart
+  description: Get the cart contents
+  input_required:
+  - meta
+  - id
+  read_only: true
+- name: create_cart
+  category: cart
+  description: Creates a new cart
+  input_required:
+  - meta
+  - cart
+  read_only: false
+- name: update_cart
+  category: cart
+  description: Perform updates to a cart.
+  input_required:
+  - meta
+  - cart
+  - id
+  read_only: false
+- name: cancel_cart
+  category: cart
+  description: Cancels a cart.
+  input_required:
+  - meta
+  - id
+  read_only: false
+- name: get_order
+  category: orders
+  description: Get the details of an order
+  input_required:
+  - meta
+  - id
+  read_only: true
+- name: search_catalog
+  category: catalog
+  description: Search for products from the online store, hosted on Shopify.
+  input_required:
+  - meta
+  - catalog
+  read_only: true
+- name: lookup_catalog
+  category: catalog
+  description: 'Look up multiple products or variants by identifier.
+
+    Use this tool to resolve multiple product/variant IDs in a single request.'
+  input_required:
+  - meta
+  - catalog
+  read_only: true
+- name: get_product
+  category: catalog
+  description: 'Retrieve complete product detail by identifier. Returns a singular product
+
+    with a relevant set of variants, exact pricing, and real-time availability.
+
+    Supports interactive option selection via selected and preferences parameters
+
+    for variant narrowing and availability signals. Use for product detail page
+
+    rendering and purchase decisions.'
+  input_required:
+  - meta
+  - catalog
+  read_only: true
+agent_rules:
+- Place orders and submit payment only with the buyer's authorization (llms.txt).
+- Prices are integers in ISO 4217 minor units paired with a currency code (tool descriptions).
+- Every tool requires a meta.ucp-agent.profile URI for UCP agent discovery (inputSchema).

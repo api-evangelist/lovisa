@@ -1,0 +1,60 @@
+generated: '2026-10-21'
+method: searched
+source: https://www.lovisa.com/pages/security-privacy
+signals:
+  data_subject_request:
+    url: https://www.lovisa.com/pages/security-privacy
+    section: 'What are your rights?'
+    channel: privacy@lovisa.com (Data Protection Officer, via a Data Subject Access Request Form; postal option to Lovisa America, LLC)
+    rights_named: [access, copies in a readable format, deletion, restriction of processing, non-discrimination, marketing opt-out]
+    evidence:
+    - source: https://www.lovisa.com/pages/security-privacy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: "To request access, deletion or restriction of your personal data please complete our Data Subject Access Request Form and submit it via email to our Data Protection Officer at privacy@lovisa.com ."
+    - source: https://www.lovisa.com/pages/security-privacy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: "You may exercise your right to request access and to obtain copies of any personal data we have collected from you, and request that your personal data be provided to you in a format that can be easily read."
+    note: >-
+      The US privacy policy (framed under the CCPA) names access, copy, deletion and restriction rights and
+      a single DSAR channel to a named Data Protection Officer. No response time is stated.
+  data_retention:
+    url: https://www.lovisa.com/pages/security-privacy
+    section: Retention
+    stated_periods: ['3 years since last contact', 'duration of commercial relationship plus 10 years for customers who purchased', 'litigation hold until end of judicial action including appeal']
+    evidence:
+    - source: https://www.lovisa.com/pages/security-privacy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: "For the duration of your commercial relationship with Lovisa and 10 years thereafter, if You are a client i.e. you have made a purchase of our products or services."
+    - source: https://www.lovisa.com/pages/security-privacy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: "If a judicial action is initiated, the personal information may be stored until the end of such action, including any potential periods for appeal, and will then be deleted or archived as permitted by applicable law."
+    note: >-
+      Concrete retention periods are published (3 years since last contact; relationship + 10 years for
+      purchasers), followed by archiving for the limitation period, then anonymisation or deletion.
+  incident_notification:
+    url: https://www.lovisa.com/pages/security-privacy
+    section: Breach
+    evidence:
+    - source: https://www.lovisa.com/pages/security-privacy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: "In the event of a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data, Lovisa will assess the risk to your rights and freedoms and if appropriate report this breach to the relevant authorities."
+    note: >-
+      A conditional commitment to notify authorities ("if appropriate") after a risk assessment. It does not
+      commit to notifying affected individuals and states no timeframe.
+  subprocessors:
+    url: https://www.lovisa.com/pages/security-privacy
+    section: 'Who can access your data?'
+    list_published: false
+    evidence:
+    - source: https://www.lovisa.com/pages/security-privacy
+      http_status: 200
+      fetched: '2026-10-21'
+      quote: "Your details may be shared within Lovisa; however, we do not sell or swap your data to third parties. Any data that is forwarded to third parties is used only to provide you with our services."
+    note: >-
+      Lovisa says it shares data with third parties only to deliver its services and does not sell data. It
+      does not name any third-party processors or publish a subprocessor list.

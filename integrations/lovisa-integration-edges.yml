@@ -1,0 +1,54 @@
+generated: '2026-10-21'
+method: searched
+source:
+- https://www.lovisa.com/llms.txt
+- https://zapier.com/apps/lovisa/integrations
+- https://n8n.io/integrations/lovisa/
+- https://composio.dev/toolkits/lovisa
+- https://monid.ai/tools/lovisa
+checked:
+- https://www.lovisa.com/llms.txt
+- https://www.lovisa.com/.well-known/ucp
+- json-schema/lovisa-ucp-mcp-tools-list.json
+- https://composio.dev/toolkits/lovisa
+- https://monid.ai/tools/lovisa
+- https://n8n.io/integrations/lovisa/
+- https://zapier.com/apps/lovisa/integrations
+summary: null
+marketplace_apps: []
+edges:
+- partner_name: Shopify
+  partner: shopify
+  type: claimed
+  relationship: core-infrastructure
+  direction: third-party
+  evidence: 'https://www.lovisa.com/llms.txt: "This store is built on [Shopify](https://www.shopify.com)"; tools/list
+    search_catalog: "Search for products from the online store, hosted on Shopify."'
+  operations:
+  - search_catalog
+  - lookup_catalog
+  - get_product
+  - create_cart
+  - get_cart
+  - update_cart
+  - cancel_cart
+  - create_checkout
+  - get_checkout
+  - update_checkout
+  - complete_checkout
+  - cancel_checkout
+  - get_order
+- partner_name: Google Pay
+  partner: google-pay
+  type: contract
+  relationship: payment-method
+  direction: unknown
+  evidence: https://www.lovisa.com/.well-known/ucp payment_handlers "com.google.pay" (id gpay, version 2026-01-11,
+    merchant_name "Lovisa United States", gateway "shopify")
+- partner_name: Shop Pay
+  partner: null
+  type: claimed
+  relationship: payment-method
+  direction: third-party
+  evidence: 'https://www.lovisa.com/llms.txt: "use Shop Pay with prefilled addresses and saved payment methods."'
+templates: []

@@ -1,0 +1,47 @@
+generated: '2026-10-21'
+method: searched
+source: https://www.lovisa.com/llms.txt
+note: Conventions are those of Shopify's UCP MCP service as exposed on Lovisa's store, read from llms.txt, the
+  UCP profile and the recorded tools/list (json-schema/lovisa-ucp-mcp-tools-list.json). There is no REST API.
+authentication:
+  style: Web Bot Auth agent identification; optional buyer Shop-account identity linking. See authentication/lovisa-authentication.yml.
+idempotency:
+  coverage: partial
+  scope:
+  - complete_checkout
+  mechanism: required meta field "idempotency-key" ("An idempotency key for completing the checkout.") in the
+    complete_checkout input schema
+  evidence: json-schema/lovisa-ucp-mcp-tools-list.json
+  note: No other write tool (create_cart, update_cart, cancel_cart, create_checkout, update_checkout, cancel_checkout)
+    declares an idempotency key. Retention is not documented.
+reversibility:
+  status: documented
+  surfaces:
+  - write: create_cart / update_cart
+    reversal: cancel_cart
+    window: null
+    note: no window stated
+  - write: create_checkout / update_checkout
+    reversal: cancel_checkout
+    window: null
+    note: no window stated
+  - write: complete_checkout (places an order)
+    reversal: none via the MCP tools (get_order is read-only)
+    window_text: Refunds are offered on all eligible orders returned to us within 30 days of your delivery date.
+    window_source: https://www.lovisa.com/policies/refund-policy
+    note: the 30-day window is a merchandise return policy handled outside the API, not an API reversal operation.
+  buyer_review: 'llms.txt: "Place orders and submit payment only with the buyer''s authorization. Follow required
+    review and approval steps."'
+versioning:
+  style: date-versioned protocol (UCP)
+  current: '2026-08-25'
+  supported: ['2026-04-08', '2026-01-23']
+  source: https://www.lovisa.com/.well-known/ucp
+rate_limit_signaling:
+  status: 429
+  headers: [Retry-After]
+  evidence: 'llms.txt: "Back off on `429` responses and respect `Retry-After` when provided."'
+  see: rate-limits/lovisa-rate-limits.yml
+metadata:
+  money: ISO 4217 minor-unit integers paired with a currency code
+lifecycle: lifecycle/lovisa-lifecycle.yml

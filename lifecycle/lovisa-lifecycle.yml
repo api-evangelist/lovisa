@@ -1,0 +1,15 @@
+generated: '2026-10-21'
+method: searched
+source: https://www.lovisa.com/.well-known/ucp
+versioning:
+  scheme: date-based UCP protocol versions negotiated via the store's UCP profile
+  current: '2026-08-25'
+  supported_versions:
+    '2026-04-08': https://lovisa-usa.myshopify.com/.well-known/ucp/2026-04-08
+    '2026-01-23': https://lovisa-usa.myshopify.com/.well-known/ucp/2026-01-23
+  note: 'llms.txt: "Use a compatible UCP version and follow the returned tool schemas."'
+deprecation:
+  policy: null
+  note: Lovisa publishes no deprecation or sunset policy; none observed in llms.txt or the UCP profile.
+sla: null
+status_page: null

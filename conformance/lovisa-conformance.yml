@@ -1,0 +1,22 @@
+generated: '2026-10-21'
+method: searched
+source: https://www.lovisa.com/.well-known/ucp
+standards:
+- id: ucp
+  conforms: true
+  evidence: 'GET https://www.lovisa.com/.well-known/ucp (200, 2026-10-21) returns a UCP profile: ucp.version "2026-08-25", supported_versions 2026-04-08
+    and 2026-01-23, service dev.ucp.shopping over transport mcp at https://lovisa-usa.myshopify.com/api/ucp/mcp
+    with schema https://ucp.dev/2026-08-25/services/shopping/mcp.openrpc.json.'
+  note: Shopify platform implementation of the Universal Commerce Protocol, not Lovisa-authored.
+- id: mcp
+  conforms: true
+  evidence: 'llms.txt: "Connect to the MCP endpoint advertised in the profile (https://www.lovisa.com/api/ucp/mcp)
+    and use tools/list"; tools/list response saved at json-schema/lovisa-ucp-mcp-tools-list.json.'
+- id: iso-4217
+  conforms: true
+  evidence: 'Every tool description in tools/list: "Prices in the response are integers in the currency''s ISO 4217
+    minor units, paired with a currency code".'
+- id: web-bot-auth
+  conforms: true
+  evidence: 'llms.txt requires agents to "use [Web Bot Auth]" for server-to-server requests (a requirement placed
+    on callers).'

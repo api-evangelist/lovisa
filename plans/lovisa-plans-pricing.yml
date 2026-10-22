@@ -1,0 +1,14 @@
+name: Lovisa pricing
+generated: '2026-10-21'
+method: none
+source: https://www.lovisa.com/llms.txt
+audience: unclear
+pricing_basis: none
+published: false
+delivery:
+  mode: managed
+plan_count: 0
+plans: []
+note: Lovisa publishes no API or developer pricing. The only programmatic surface is the Shopify-provided UCP
+  MCP shopping service on its storefront, documented in llms.txt with no fee or plan; product prices are retail,
+  not API pricing.

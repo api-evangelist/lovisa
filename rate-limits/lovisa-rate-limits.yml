@@ -1,0 +1,14 @@
+name: Lovisa rate limits
+generated: '2026-10-21'
+method: searched
+source: https://www.lovisa.com/llms.txt
+published: false
+note: No numeric limits are published. llms.txt states that Web Bot Auth identification lets the store "apply
+  appropriate access and rate limits" and documents the exhaustion signal only.
+limit_count: 1
+limits:
+- name: Agent traffic back-off (UCP MCP service)
+  limit_text: Back off on `429` responses and respect `Retry-After` when provided.
+  scope: agent
+  status_code: 429
+  headers: [Retry-After]

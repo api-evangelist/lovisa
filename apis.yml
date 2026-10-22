@@ -1,23 +1,152 @@
 aid: lovisa
+
 name: Lovisa
-description: 'Lovisa is a company surfaced via the API Evangelist harvest backlog (source: australia-apidays-2026)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: 'Lovisa (Lovisa Holdings, ASX code: LOV) is an Australian fast-fashion jewellery retailer established
+  in April 2010, selling affordable, on-trend earrings, necklaces, wristwear, rings and piercing services through
+  more than 900 stores in over 45 countries and its Shopify-based online store at lovisa.com. Its site publishes
+  an investor centre, a style blog, careers and ambassador programs; no public developer API, API documentation
+  or developer portal was found on its own domains. Surfaced via the API Evangelist harvest backlog (source:
+  australia-apidays-2026).'
+
+image: https://cdn.shopify.com/s/files/1/0257/8130/5424/files/Lovisa_Logo_80_BLACK_1000x1000px.png
+
 url: https://raw.githubusercontent.com/api-evangelist/lovisa/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:australia-apidays-2026
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-22 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-21'
+
 modified: '2026-10-21'
+
 tags:
 - Company
-apis: []
+- Retail
+- Jewelry
+- Fashion
+- E-Commerce
+- Australia
+- ASX Listed
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: RateLimits
+  url: rate-limits/lovisa-rate-limits.yml
+- type: Idempotency
+  url: conventions/lovisa-conventions.yml
+- type: Conventions
+  url: conventions/lovisa-conventions.yml
+- type: Authentication
+  url: authentication/lovisa-authentication.yml
+- type: Lifecycle
+  url: lifecycle/lovisa-lifecycle.yml
+- type: Conformance
+  url: conformance/lovisa-conformance.yml
+- type: LLMsTxt
+  url: llms/lovisa-llms.txt
+- type: MCPServer
+  url: mcp/lovisa-mcp.yml
+- type: WellKnown
+  url: well-known/lovisa-well-known.yml
+- type: Hosts
+  url: hosts/lovisa-hosts.yml
+- type: IntegrationEdges
+  url: integrations/lovisa-integration-edges.yml
+- type: Vendors
+  url: vendors/lovisa-vendors.yml
+- type: SignUp
+  url: https://ambassador.lovisa.com/create-account
+- type: DomainSecurity
+  url: security/lovisa-domain-security.yml
 - type: Website
-  url: https://lovisa.com/
+  url: https://www.lovisa.com/
+- type: Blog
+  url: https://www.lovisa.com/blogs/stylechannel
+- type: Support
+  url: https://www.lovisa.com/pages/contact-us
+- type: HelpCenter
+  url: https://www.lovisa.com/pages/faq
+- type: TermsOfService
+  url: https://www.lovisa.com/pages/terms-conditions
+- type: PrivacyPolicy
+  url: https://www.lovisa.com/pages/security-privacy
+- type: AboutUs
+  url: https://www.lovisa.com/pages/about
+- type: InvestorRelations
+  url: https://www.lovisa.com/pages/investor-centre
+- type: Careers
+  url: https://careers.lovisa.com/
+
+apis:
+- aid: lovisa:lovisa-ucp-shopping-mcp
+  name: Lovisa UCP Shopping MCP
+  description: Universal Commerce Protocol (UCP) shopping service for Lovisa's Shopify-hosted online store,
+    advertised in https://www.lovisa.com/llms.txt and the store's /.well-known/ucp profile. An MCP (JSON-RPC)
+    endpoint for product discovery, carts, checkout and orders; an anonymous tools/list on 2026-10-21 returned
+    13 tools (search_catalog, lookup_catalog, get_product, create_cart/get_cart/update_cart/cancel_cart,
+    create_checkout/get_checkout/update_checkout/complete_checkout/cancel_checkout, get_order). The protocol
+    is Shopify's platform implementation of UCP (serverInfo universal-commerce 0.1.0), not a Lovisa-authored
+    REST API; no OpenAPI, AsyncAPI, GraphQL, gRPC or WSDL contract is published by Lovisa.
+  humanURL: https://www.lovisa.com/llms.txt
+  baseURL: https://www.lovisa.com/api/ucp/mcp
+  tags:
+  - MCP
+  - Commerce
+  - Checkout
+  - UCP
+  properties:
+  - type: Documentation
+    url: https://www.lovisa.com/llms.txt
+  - type: JSONSchema
+    name: MCP tools/list response (live, verbatim, 2026-10-21)
+    url: json-schema/lovisa-ucp-mcp-tools-list.json
+  - type: Documentation
+    name: UCP profile
+    url: https://www.lovisa.com/.well-known/ucp
+  - type: Documentation
+    name: UCP MCP endpoint (Shopify store host named in the UCP profile)
+    url: https://lovisa-usa.myshopify.com/api/ucp/mcp
+
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: Website, description, tags, image and link pointers verified from the company's own site (title/og:site_name
+    "Lovisa", investor centre "ASX code LOV"). No developer portal, API docs or public API found on lovisa.com.
+    The ambassador create-account page is an affiliate signup, not an API signup, so it was not recorded as SignUp.
+  evidence:
+  - url: https://www.lovisa.com/
+    status: 200
+  - url: https://www.lovisa.com/pages/about
+    status: 200
+  - url: https://www.lovisa.com/pages/investor-centre
+    status: 200
+  - url: https://www.lovisa.com/blogs/stylechannel
+    status: 200
+  - url: https://www.lovisa.com/pages/contact-us
+    status: 200
+  - url: https://www.lovisa.com/pages/faq
+    status: 200
+  - url: https://www.lovisa.com/pages/terms-conditions
+    status: 200
+  - url: https://www.lovisa.com/pages/security-privacy
+    status: 200
+  - url: https://careers.lovisa.com/
+    status: 200
+x-enrichment:
+  date: '2026-10-22'
+  status: enriched
+  artifacts_added: 23
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

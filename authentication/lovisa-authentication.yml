@@ -1,0 +1,21 @@
+generated: '2026-10-21'
+method: searched
+source: https://www.lovisa.com/llms.txt
+docs: https://shopify.dev/docs/api/storefront#identifying-bots-with-web-bot-auth
+summary: Lovisa publishes no API auth reference of its own. Its llms.txt (Shopify-generated) says agent traffic
+  to the UCP MCP service must identify itself, server-to-server requests using Web Bot Auth, and that buyers may
+  connect a Shop account. The store's UCP profile advertises the dev.ucp.common.identity_linking capability. The
+  anonymous tools/list recorded in json-schema/ on 2026-10-21 answered without credentials.
+schemes:
+- name: Web Bot Auth (agent identification)
+  type: http-message-signatures
+  evidence: '"Server-to-server requests and hosted or remote browsers must use [Web Bot Auth](https://shopify.dev/docs/api/storefront#identifying-bots-with-web-bot-auth)
+    and follow the service''s authentication requirements."'
+  source: https://www.lovisa.com/llms.txt
+- name: UCP identity linking (buyer Shop account)
+  type: oauth2
+  evidence: 'UCP profile capability dev.ucp.common.identity_linking; llms.txt: "Connect their Shop account for
+    personalized discovery and accelerated checkout with saved details."'
+  source: https://www.lovisa.com/.well-known/ucp
+  note: Flow details are defined by the UCP spec and Shopify, not documented by Lovisa; type is the UCP identity-linking
+    mechanism as published by ucp.dev, not observed.
