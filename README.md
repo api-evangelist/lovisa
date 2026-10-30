@@ -64,5 +64,107 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Lovisa is a company surfaced via the API Evangelist harvest backlog (source: australia-apidays-2026) and added to the network as a stub for full-pipeline profiling.
-- https://lovisa.com/
+Lovisa (Lovisa Holdings, ASX code: LOV) is an Australian fast-fashion jewellery retailer established in April 2010, selling affordable, on-trend earrings, necklaces, wristwear, rings and piercing services through more than 900 stores in over 45 countries and its Shopify-based online store at lovisa.com. Its site publishes an investor centre, a style blog, careers and ambassador programs; no public developer API, API documentation or developer portal was found on its own domains. Surfaced via the API Evangelist harvest backlog (source: australia-apidays-2026).
+
+**Areas:** Company · Retail · Jewelry · Fashion · E-Commerce · Australia · ASX Listed
+
+## Lovisa on APIs.io
+
+Everything profiled for Lovisa is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/lovisa/](https://apis.io/providers/lovisa/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Lovisa UCP Shopping MCP](https://apis.io/apis/lovisa/lovisa-ucp-shopping-mcp/) — Universal Commerce Protocol (UCP) shopping service for Lovisa's Shopify-hosted online store, advertised in https://www.lovisa.com/llms.txt and the store's…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### JSON Schema (1)
+
+The data models the API reads and writes.
+
+- [Lovisa Ucp Mcp Tools List](https://apis.io/schemas/lovisa/lovisa-ucp-mcp-tools-list/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Lovisa Authentication](https://apis.io/security/lovisa/lovisa-authentication/)
+- [Lovisa Domain Security](https://apis.io/security/lovisa/lovisa-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Lovisa Plans Pricing](https://apis.io/plans/lovisa/lovisa-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Lovisa Rate Limits](https://apis.io/rate-limits/lovisa/lovisa-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.lovisa.com/)
+- [Sign up](https://ambassador.lovisa.com/create-account)
+- [Support](https://www.lovisa.com/pages/contact-us)
+- [Blog](https://www.lovisa.com/blogs/stylechannel)
+- [Terms of service](https://www.lovisa.com/pages/terms-conditions)
+- [Privacy policy](https://www.lovisa.com/pages/security-privacy)
+
+## API Evangelist rating
+
+**Kin Score 26.7** — thin · rubric 0.24.0 · scored 2026-10-22
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.0 |
+| Contract quality | 7.2 |
+| Contract governance | 16.4 |
+| Operational transparency | 18.9 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 34.2 |
+
+**Agent readiness 21.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | self |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/lovisa/](https://apis.io/providers/lovisa/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Lovisa: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/lovisa/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
